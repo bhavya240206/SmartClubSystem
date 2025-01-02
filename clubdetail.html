@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Details and Certificates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+            background-size: cover;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: rgba(22, 160, 133, 1);
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .club-section {
+            margin-bottom: 40px;
+        }
+
+        .club-section h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .club-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .club-button {
+            padding: 10px 20px;
+            background: #16a085;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .club-button:hover {
+            background: #16a085;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.9);
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .modal-content h1 {
+            margin: 0 0 10px;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .close-button, .club-button {
+            padding: 10px 20px;
+            background: #16a085;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 16px;
+        }
+
+        .close-button:hover {
+            background: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Club Details</h1>
+        
+    </header>
+    <div class="container">
+        <div class="club-section">
+            <h2>Technical Clubs</h2>
+            <div class="club-buttons">
+               <button class="club-button" onclick="openModal('TechPost ClubCode' )">TechPost ClubCode</button>
+                <button class="club-button" onclick="openModal('CodeChef SVECW Chapter')">CodeChef SVECW Chapter</button>
+                <button class="club-button" onclick="openModal('Energy Swaraj Club')">Energy Swaraj Club </button>
+                <button class="club-button" onclick="openModal('Idea Club')">Idea Club </button>
+                <button class="club-button" onclick="openModal('ECHARTS Club')">ECHARTS Club </button>
+                <button class="club-button" onclick="openModal('TECHXTREME Club')">TECHXTREME Club </button>
+            </div>
+        </div>
+        <div class="club-section">
+            <h2>Non-Technical Clubs</h2>
+            <div class="club-buttons">
+                <button class="club-button" onclick="openModal('A A A Club ')">A A A Club </button>
+                <button class="club-button" onclick="openModal('Eco Club')">Eco Club </button>
+                <button class="club-button" onclick="openModal('Painting Club')">Painting Club </button>
+                <button class="club-button" onclick="openModal('Music Club')">Music Club </button>
+                <button class="club-button" onclick="openModal('ToastMasters Club')">ToastMasters Club </button>
+                <button class="club-button" onclick="openModal('Sahaya Club')">Sahaya Club </button>
+                <button class="club-button" onclick="openModal('Vishnu Cultural Club')">Vishnu Cultural Club </button>
+                <button class="club-button" onclick="openModal('Flash It Out Club')">Flash It Out Club </button>
+                <button class="club-button" onclick="openModal('Page Turners')">Page Turners </button>
+                <button class="club-button" onclick="openModal('Hobby Horses-Techni Safoos')">Hobby Horses-Techni Safoos</button>
+                <button class="club-button" onclick="openModal('Rock Me Fab')">Rock Me Fab </button>
+                <button class="club-button" onclick="openModal('THE HINDU - Future INDIA Club')">THE HINDU - Future INDIA Club </button>
+                <button class="club-button" onclick="openModal('Dance Club')">Dance Club </button>
+                <button class="club-button" onclick="openModal('Empathy Club')">Empathy Club </button>
+                <button class="club-button" onclick="openModal('MECOW Club')">MECOW Club </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h1 id="modal-title"></h1>
+            <form action="clubdetail.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" id="clubname" name="clubname">
+                <p>
+                    <label for="certificate1">Upload Certificate 1:</label>
+                    <input type="file" name="certificate1" id="certificate1" accept="application/pdf, image/*" required>
+                </p>
+                <p>
+                    <label for="certificate2">Upload Certificate 2:</label>
+                    <input type="file" name="certificate2" id="certificate2" accept="application/pdf, image/*" required>
+                </p>
+                <button type="submit" class="club-button">Upload</button>
+                <button type="button" class="close-button" onclick="closeModal()">Close</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('clubname').value = title;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

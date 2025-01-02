@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css">
+    
+    <style>
+        /* Add basic styling for the signup button */
+        .signup-button {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            background-color: #285fa7;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .signup-button:hover {
+            background-color: #287ba7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add the signup button -->
+    <a href="signup.html" class="signup-button">Sign Up</a>
+
+    <div class="login-container">
+        <form class="login-form" action="login.php" method="POST">
+            <h2>Login</h2>
+            
+            <div class="input-group">
+                <label for="role">Select Role</label>
+                <select id="role" name="role" required>
+                    <option value="">Select your role</option>
+                    <option value="club-member">Club Member</option>
+                    <option value="student">Student</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

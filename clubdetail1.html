@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Details Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+            background-size: cover;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: rgba(22, 160, 133, 1);
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .club-section {
+            margin-bottom: 40px;
+        }
+
+        .club-section h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .club-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .club-button {
+            padding: 10px 20px;
+            background: #16a085;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .club-button:hover {
+            background: #16a085;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.9);
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .modal-content h1 {
+            margin: 0 0 10px;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .close-button {
+            background: #16a085;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .close-button:hover {
+            background: #16a085;
+        }
+
+        #view-certificate-btn {
+            background: #007bff;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Club Details</h1>
+        
+    </header>
+    <div class="container">
+        <div class="club-section">
+            <h2>Technical Clubs</h2>
+            <div class="club-buttons">
+                <button class="club-button" onclick="openModal('TechPost ClubCode','TechPost Club was started on 29th March, 2022 with the following goals in mind, are To launch a special skills-based platform for SVECW students To educate and expose young minds to emerging technologies To face off against the outside world by publishing the views of students on emerging technologies' )">TechPost ClubCode</button>
+                <button class="club-button" onclick="openModal('CodeChef SVECW Chapter','To promote  competitive programming environment on campus and help students to enhance their problem-solving skills by exposing them to different opportunities, competitions, and providing required resources. ')">CodeChef SVECW Chapter</button>
+                <button class="club-button" onclick="openModal('Energy Swaraj Club','As far as the second club (Energy Swaraj Club) is concerned, students got inspired by Climate Clock Program initiated by Prof Chetan Solanki, IIT, Mumbai, more than 500 of our college students participated in this initiative and received certificates. As a token of appreciation, the Energy Swaraj Foundation has presented a silver certificate of appreciation and climate clock to our college.')">Energy Swaraj Club </button>
+                <button class="club-button" onclick="openModal('Idea Club', 'On the auspicious day of 26th September 2011, IDEA Club came into existence. The IDEA Club is a place where students get a chance to exhibit their innovative and creative ideas. The main motto is to bring awareness about the advantage of reading books, to motivate students to be proactive and to sharpen their creative talents. Under this IDEA Club many activities are organized frequently to test their creative thinking. This kind of exposure widens their knowledge, vocabulary and analytical ability. ')">Idea Club </button>
+                <button class="club-button" onclick="openModal('Echarts', 'ECHARTS is SVECW’s first education service based club formed in 2014 with a motto that every child has a right to study. It was a realization experienced by one student that ‘one is treated with respect only if he or she is educated’. Hence from then E-CHARTS started concentrating on those who are gifted with brilliant minds, but sadly not with money. There may be many kinds of services like food, money, clothing which are temporary but education is permanent which can be reciprocated.')">ECHARTS Club </button>
+                <button class="club-button" onclick="openModal('TECHXTREME Coding Club', 'The main objective of this club is to enhance the programming skills and problem solving ability among students. Learning how to code is an important skill in this digital age. It’s not just enough to know how to use technology. They should know how it works too. Learning to code doesn’t just mean you can become a developer. It strengthens problem solving skills and logical thinking and supports key academic subjects such as science and technology. Under this club students are actively participating in different coding contests and Programming events. The main aim of this club is to train the students and make them industry ready.')">TECHXTREME Club </button>
+            </div>
+        
+        </div>
+        
+        <div class="club-section">
+            <h2>Non-Technical Clubs</h2>
+            <div class="club-buttons">
+                <button class="club-button" onclick="openModal('A A A Club', 'The Amateur Astronomy Association (A A A) was started as a small effort to fuel the passion of some young minds towards the field of astronomy. Astronomy is an age old science and deals with the study of stars, galaxies, planets and other heavenly bodies. Children look at the stars in awe and excitingly recite the nursery rhyme: ‘twinkle twinkle little star, how I wonder what you are…’ But this curiosity wears off as they grow up. This club is therefore initiated, with the encouragement of our generous Chairman Sri K. V. Vishnu Raju and the management, to rekindle that long extinguished flame. With the advent of KONUSMOTOR DIGIMAX 90, a refracting type telescope in January 2011, the AAA Club seriously began its journey into the outer space by watching heavenly objects through this telescope, which has been a real feast to their eyes. Students have been taken to Birla Planetarium, Hyderabad. Future activities of this club are going to explore the wonders of the universe.')">A A A Club </button>
+                <button class="club-button" onclick="openModal('Eco Club', 'On 5th of June 2011, Eco Friendly Club was born uniting nine positively driven students under the guidance of K.Jagadish, Assistant Professor of Chemistry, with an idea of helping local people to protect environment with their right attitude. This club is a culmination of students’ passion towards chemistry concerned works and environmental hazards.')">Eco Club </button>
+                <button class="club-button" onclick="openModal('Painting Club', 'At SVECW the late bloomer, Painting Club, has been blooming luxuriously with many activities from 9th July 2012. Painting is a creative art. Basically it is an innate skill and some children at a very early age are found to be good at drawing pictures and painting things around them. If parents can identify and nurture their interest, he or she will become a good painter.Painting Club aims at encouraging the new talents by identifying students with a zeal. At SVECW, many amateur painters are encouraged to participate in various competitions. Their paintings are exhibited in the campus in various special occasions. Students, being a part of Painting Club utilize every opportunity to fine tune their creative skills.')">Painting Club </button>
+                <button class="club-button" onclick="openModal('Music Club', 'Music Club of SVECW is dedicated to the promotion of Indian Classical Music, among the student community those who love and appreciate music. This club mainly focuses on providing inexpensive training on vocal music to provide the basic surs and taals of Indian Classical Music, by which the students are able to learn the basics of real musical talent required in the music industry.')">Music Club </button>
+                <button class="club-button" onclick="openModal('ToastMasters Club', 'The driving force behind setting up of this club is to help all the women engineering students improve their leadership and communication skills for many opportunities in their chosen fields. The world needs leaders. Leaders head families, coach teams, run businesses and mentor others. These leaders must not only accomplish, they must communicate. This can be achieved by regularly giving speeches, gaining feedback, leading teams and guiding others to achieve their goals in a supportive atmosphere, leaders emerge from the Toastmasters program.')">ToastMasters Club </button>
+                <button class="club-button" onclick="openModal('Sahaya Club', 'It’s a charitable SOCIAL OUTREACH PROGRAM started by the students to give back to society in their own small way. In association with Red Cross Society, Eluru, the students organize blood donation camps; prevent precious food and clothes from being wasted. Instead they share these with the less privileged, thus inspiring other youngsters to be thrifty.')">Sahaya Club </button>
+                <button class="club-button" onclick="openModal('Vishnu Cultural Club', 'Now-a-days, the modern youth are ignorant about our culture and its importance. At SVES, it’s felt high time that students should get into more of our culture through activities. This is the resultant force of the birth of Vishnu Cultural Club. Here, students participate in a lot of cultural activities to identify themselves as Indians and bring out their hidden talents.')">Vishnu Cultural Club </button>
+                <button class="club-button" onclick="openModal('Flash It Out Club', 'Photography is an art. The students who are interested will be taught photographic techniques. Small movies are also screened with the guidance of experts. This club will enhance students’ skills in strengthening their pastime into a very useful habit. The events conducted in the SVECW are covered under Photography club.')">Flash It Out Club</button>
+                <button class="club-button" onclick="openModal('Page Turners', 'It is a reading club for enthusiastic booklovers. The college has acquired many fiction and nonfiction books based on the students’ interest. Events are conducted periodically to encourage a competitive spirit.')">Page Turners </button>
+                <button class="club-button" onclick="openModal('Hobby Horses-Techni Safoos', 'It Promotes a Vibrant campus experience through organizing activities pertaining to the performing art and crafts. Bringing students from all walks of life, interests and ethnicity come together in ways that stimulate lifelong learning and interaction. To promote experiences in art, craft and design, it enables them to learn how to reflect critically on their own and others work.')">Hobby Horses-Techni Safoos </button>
+                <button class="club-button" onclick="openModal('Rock Me Fab', 'Rock me Fab Club provides the best platform to ponder on the social issues combined with diverse talents of students. In this way students get a chance to showcase their talents as well. It makes most of the students to participate voluntarily in various events conducted in SVECW.')">Rock Me Fab </button>
+                <button class="club-button" onclick="openModal('THE HINDU- Future INDIA Club', 'The students expressed a desire to improve their communication skills and General Knowledge, particularly in English language proficiency. In order to cater to their expressed need, the college made arrangements with The Hindu newspaper to supply all the students with a copy of the daily, free of charge. The Hindu- Future India Club was formally inaugurated by the CEO and MD of the Hindu group, Mr. Rajiv Lochan and the Chairman, SVES, Shri K.V. Vishnu Raju. The Hindu newspaper was made use of for activity based learning such as: Reading comprehension, Debate, Jam, Group discussions.')">THE HINDU - Future INDIA Club </button>
+                <button class="club-button" onclick="openModal('Dance Club', 'The idea behind establishing the club is to promote dance. It was formed to bring out the dancing talents and give a platform to those who have passion and love for dance. It not only focuses on entertaining people but also works on bringing out motivational message that will be useful for the student. The Dance Club welcomes new talented students every year with open hearts to bring out the hidden talents and also provide them a stage where they can showcase their dancing talents and interest.')">Dance Club </button>
+                <button class="club-button" onclick="openModal('Empathy Club', 'Empathy is the ability to identify and understand another’s situation, feelings and motives. It’s our capacity to recognize the concerns other people have. Empathy is the ability to put oneself emotionally into another’s shoes. Those who are more connected to the feelings, both sensory and emotional, of own bodies are also more connected to the feelings of others. It’s a new club started with an inaugural on 31st of July 2017')">Empathy Club </button>
+                <button class="club-button" onclick="openModal('MECOW Club', 'The objectives of the Mega Events Celebration of the World club is to enrich students knowledge levels, enhance LSRW skills, to build up their observation, concentration and analytical skills by celebrating the days that are declared by the United Nation Organization(UNO). On specific days various activities are conducted by students for students. This club aims at enhancing the communication and leadership skills of students.')">MECOW Club </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h1 id="modal-title"></h1>
+            <p id="modal-description"></p>
+            <button class="close-button" onclick="closeModal()">Close</button>
+            <a id="view-certificate-btn" class="close-button" target="_blank">View Certificates</a>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, description) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-description').innerText = description;
+
+            // Set dynamic link
+            document.getElementById('view-certificate-btn').href = `clubdetails1.php?clubname=${encodeURIComponent(title)}`;
+
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
